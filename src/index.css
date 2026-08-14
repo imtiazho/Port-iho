@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #090909;
+    --text-cream: #D6C8B0;
+    --text-muted: #8C8375;
+    --accent-orange: #FF5035;
+    --border-cream: rgba(214, 200, 176, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #090909;
+    color: #D6C8B0;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: #090909;
+    color: #D6C8B0;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #FF5035;
+    color: #000000;
+  }
+}
+
+/* Custom Editorial Fonts */
+.font-display {
+  font-family: 'Syne', 'Space Grotesk', sans-serif;
+  letter-spacing: -0.05em;
+}
+
+.font-sans {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Typography styles matching Neue Montreal / Editorial layout */
+.hero-headline {
+  font-family: 'Syne', 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+/* Custom Blend & Mask utilities */
+.portrait-blend {
+  mix-blend-mode: screen;
+  filter: grayscale(100%) contrast(125%) brightness(0.75);
+}
+
+.vignette-mask {
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+}
+
+.bottom-fade-mask {
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(214, 200, 176, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5035;
+}
