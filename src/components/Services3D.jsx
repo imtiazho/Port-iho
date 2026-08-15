@@ -8,7 +8,7 @@ function VisorObject() {
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (meshRef.current) {
-      meshRef.current.rotation.y = t * 0.01;
+      meshRef.current.rotation.y = t * 0.4;
       meshRef.current.rotation.x = Math.sin(t * 0.3) * 0.2;
       meshRef.current.position.y = Math.sin(t * 0.8) * 0.15;
     }
@@ -28,7 +28,7 @@ function VisorObject() {
             clearcoatRoughness={0.1}
           />
         </mesh>
-        
+
         {/* Accent Inner Ring */}
         <mesh scale={0.75}>
           <octahedronGeometry args={[1.1, 2]} />

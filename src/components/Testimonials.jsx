@@ -28,15 +28,15 @@ export default function Testimonials() {
   const activeItem = testimonials[activeIndex];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="testimonials" 
+      id="testimonials"
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-28 px-6 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
       <SectionIndicator sectionNumber="06" showSocials={true} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
+
         {/* Left Column: Giant Orange Quote, Review Text & Author Details */}
         <div className="lg:col-span-8 flex flex-col justify-center space-y-6">
           <motion.div
@@ -89,11 +89,10 @@ export default function Testimonials() {
                 <motion.div
                   key={item.id}
                   onClick={() => setActiveIndex(idx)}
-                  className={`relative rounded-full cursor-pointer overflow-hidden transition-all duration-500 ${
-                    isActive 
-                      ? 'w-20 h-20 sm:w-24 sm:h-24 border-2 border-[#FF5035] shadow-[0_0_25px_rgba(255,80,53,0.5)] scale-110' 
+                  className={`relative rounded-full cursor-pointer overflow-hidden transition-all duration-500 ${isActive
+                      ? 'w-20 h-20 sm:w-24 sm:h-24 border-2 border-[#FF5035] shadow-[0_0_25px_rgba(255,80,53,0.5)] scale-110'
                       : 'w-14 h-14 sm:w-16 sm:h-16 border border-[rgba(214,200,176,0.15)] opacity-40 hover:opacity-80'
-                  }`}
+                    }`}
                   style={{
                     filter: isActive ? 'brightness(1) contrast(1.1)' : 'brightness(0.2) contrast(1.3)',
                   }}

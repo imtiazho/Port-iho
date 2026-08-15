@@ -11,14 +11,14 @@ export default function Services() {
   };
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-24 px-6 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
       <SectionIndicator sectionNumber="02" showSocials={true} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        
+
         {/* Left Column: WHAT I DO + Massive Typographic Stack */}
         <div className="">
           <motion.div
@@ -44,7 +44,7 @@ export default function Services() {
             <div className="hover:bg-[#FF5035] hover:text-white py-2 duration-300">VISUAL</div>
             <div className="hover:bg-[#FF5035] hover:text-white py-2 duration-300">MOTION</div>
             <div className="hover:bg-[#FF5035] hover:text-white py-2 duration-300">
-              PRODU<span className="text-[rgba(214,200,176,0.25)] hover:text-white duration-300">CT</span>
+              PRODU<span className="text-[rgba(214,200,176,0.25)] hover:text-white">CT</span>
             </div>
             <div className="hover:bg-[#FF5035] hover:text-white py-2 duration-300">
               TUTO<span className="text-[rgba(214,200,176,0.25)] hover:text-white duration-300">RIAL</span>

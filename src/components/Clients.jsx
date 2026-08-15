@@ -9,8 +9,8 @@ export default function Clients() {
   const [activeClient, setActiveClient] = useState(clients[3]); // Default Royal Caribbean or Ford
 
   return (
-    <section 
-      id="clients" 
+    <section
+      id="clients"
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-24 px-6 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
       <SectionIndicator sectionNumber="05" showSocials={true} />
@@ -19,7 +19,7 @@ export default function Clients() {
       <Glove3D />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
+
         {/* Left Column: Subtitle, Innovative text, Button & Dynamic Hover Review */}
         <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-10">
           <motion.div
@@ -105,10 +105,9 @@ export default function Clients() {
                   whileHover={{ x: 6 }}
                   className="cursor-pointer transition-colors"
                 >
-                  <span 
-                    className={`hero-headline text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase transition-colors duration-200 ${
-                      isSelected ? 'text-[#FF5035]' : 'text-[#D6C8B0]/80 hover:text-white'
-                    }`}
+                  <span
+                    className={`hero-headline text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase transition-colors duration-200 ${isSelected ? 'text-[#FF5035]' : 'text-[#D6C8B0]/80 hover:text-white'
+                      }`}
                   >
                     {client.name}
                   </span>

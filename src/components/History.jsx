@@ -7,14 +7,14 @@ export default function History() {
   const { history } = portfolioData;
 
   return (
-    <section 
-      id="history" 
+    <section
+      id="history"
       className="relative min-h-[80vh] w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-24 px-6 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
       <SectionIndicator sectionNumber="04" showSocials={true} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-12">
-        
+
         {/* Section Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -7,8 +7,8 @@ export default function Motto() {
   const { motto } = portfolioData;
 
   return (
-    <section 
-      id="motto" 
+    <section
+      id="motto"
       className="relative min-h-[85vh] w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-28 px-6 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
       <SectionIndicator sectionNumber="08" showSocials={true} />
@@ -26,7 +26,7 @@ export default function Motto() {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center space-y-8">
-        
+
         {/* Section Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
