@@ -57,7 +57,7 @@ export default function Process() {
           >
             <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
             <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
-              [ 05 / PROCESS ]
+              [ PROCESS ]
             </span>
           </motion.div>
 
@@ -66,7 +66,7 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase max-w-4xl"
+            className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase max-w-4xl"
           >
             ENGINEERING ROADMAP & <span className="text-[#FF5035]">DELIVERY PROCESS</span>
           </motion.h2>

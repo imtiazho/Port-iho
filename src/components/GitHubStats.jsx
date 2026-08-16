@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 export default function GitHubStats() {
   const stats = [
@@ -17,22 +17,41 @@ export default function GitHubStats() {
   ];
 
   return (
-    <section id="github-stats" className="relative w-full bg-[#0B0B0B] text-[#D6C8B0] py-16 sm:py-24 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)] overflow-hidden">
+    <section
+      id="github-stats"
+      className="relative w-full bg-[#0B0B0B] text-[#D6C8B0] py-16 sm:py-24 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)] overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto flex flex-col space-y-12">
-        
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-2">
-            <span className="text-xs font-mono text-[#FF5035] uppercase tracking-widest block font-bold">
-              ● OPEN SOURCE ACTIVITY
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white">
-              Live GitHub Stats & Engineering Activity
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full w-fit"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
+              <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
+                [ OPEN SOURCE ACTIVITY ]
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase max-w-4xl"
+            >
+              Live GitHub Stats &{" "}
+              <span className="text-[#FF5035]">Engineering Activity</span>
+            </motion.h2>
           </div>
 
           <a
-            href="https://github.com"
+            href="https://github.com/imtiazho"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 px-4 py-2 text-xs font-mono font-bold tracking-wider text-[#D6C8B0] border border-[rgba(214,200,176,0.25)] rounded-full hover:border-[#FF5035] hover:text-white transition-all"
@@ -68,7 +87,6 @@ export default function GitHubStats() {
 
         {/* Contribution Graph Preview & Language Breakdown Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#090909] border border-[rgba(214,200,176,0.15)] p-6 sm:p-8 rounded-xl">
-          
           {/* Left Column: Top Languages Breakdown */}
           <div className="lg:col-span-5 space-y-6">
             <h3 className="font-display text-xl font-bold text-white">
@@ -79,13 +97,18 @@ export default function GitHubStats() {
               {languages.map((lang, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex justify-between text-xs font-mono">
-                    <span className="text-[#D6C8B0] font-semibold">{lang.name}</span>
+                    <span className="text-[#D6C8B0] font-semibold">
+                      {lang.name}
+                    </span>
                     <span className="text-[#8C8375]">{lang.percent}%</span>
                   </div>
                   <div className="w-full h-2 bg-[#1a1a1a] rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-1000"
-                      style={{ width: `${lang.percent}%`, backgroundColor: lang.color }}
+                      style={{
+                        width: `${lang.percent}%`,
+                        backgroundColor: lang.color,
+                      }}
                     />
                   </div>
                 </div>
@@ -104,7 +127,14 @@ export default function GitHubStats() {
               <div className="grid grid-cols-12 sm:grid-cols-16 gap-1.5 py-4 max-w-md mx-auto">
                 {Array.from({ length: 48 }).map((_, i) => {
                   const intensity = (i * 7) % 5;
-                  const bg = intensity === 0 ? '#161616' : intensity === 1 ? '#FF5035' : intensity === 2 ? '#993020' : '#44150e';
+                  const bg =
+                    intensity === 0
+                      ? "#161616"
+                      : intensity === 1
+                        ? "#FF5035"
+                        : intensity === 2
+                          ? "#993020"
+                          : "#44150e";
                   return (
                     <div
                       key={i}
@@ -128,9 +158,7 @@ export default function GitHubStats() {
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

@@ -16,10 +16,10 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
   return (
     <section 
       id="projects" 
-      className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-20 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
+      className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-14 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
     >
       {/* Side Rail Section Indicator */}
-      <SectionIndicator sectionNumber="07"/>
+      <SectionIndicator sectionNumber="03"/>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-10 sm:space-y-14">
         
@@ -35,11 +35,11 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
               <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
-                [ 07 / FEATURED WORK ]
+                [ FEATURED WORK ]
               </span>
             </div>
 
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#D6C8B0] uppercase">
+            <h2 className="font-display text-2xl sm:text-5xl font-extrabold tracking-tight text-[#D6C8B0] uppercase">
               SELECTED <span className="text-[#FF5035]">PROJECT SHOWCASE</span>
             </h2>
           </motion.div>
@@ -64,7 +64,7 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
         </div>
 
         {/* Project Showcase 2-Column Feature Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}

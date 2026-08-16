@@ -22,7 +22,7 @@ export default function ContactSection() {
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  const directEmail = 'minhpham.design@gmail.com';
+  const directEmail = 'imtiazho@gmail.com';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(directEmail);
@@ -64,22 +64,17 @@ export default function ContactSection() {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full w-fit">
               <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
               <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
-                [ 08 / CONTACT ]
+                [ CONTACT ]
               </span>
-            </div>
-
-            <AvailabilityBadge text="AVAILABLE FOR NEW PROJECTS 2026" />
-            <div>
-              <LocalStatus />
             </div>
           </div>
 
           {/* Dynamic Clamped & Word-Wrapped Headline */}
-          <h2 className="text-[clamp(2.2rem,4vw,4.25rem)] font-extrabold tracking-tight leading-[0.92] uppercase text-white break-words font-display">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white block">
             Let's build something <span className="text-[#FF5035]">extraordinary</span> together.
           </h2>
 
-          <p className="text-base sm:text-lg text-[#8C8375] font-normal leading-relaxed max-w-xl">
+          <p className="text-sm sm:text-lg text-[#8C8375] font-normal leading-relaxed max-w-xl">
             Have a project in mind, need full-stack architecture, or want to build interactive web experiences? Drop a message below or email directly.
           </p>
 
@@ -125,7 +120,7 @@ export default function ContactSection() {
           <div className="pt-4 space-y-2 font-mono text-xs border-t border-[rgba(214,200,176,0.1)]">
             <div className="flex items-center gap-2">
               <span className="text-[#8C8375] uppercase">Average Response Time:</span>
-              <span className="text-[#D6C8B0] font-bold">Within 24 Hours</span>
+              <span className="text-[#D6C8B0] font-bold">Within 4 Hours</span>
             </div>
           </div>
         </div>

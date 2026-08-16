@@ -26,7 +26,7 @@ export default function LocalStatus({ variant = 'default' }) {
   const isCompact = variant === 'compact';
 
   return (
-    <div className={`inline-flex flex-wrap items-center gap-3 text-xs font-mono border border-[rgba(214,200,176,0.18)] bg-[#0B0B0B] rounded-full px-4 py-2 shadow-md ${
+    <div className={`inline-flex flex-wrap items-center gap-3 text-xs font-mono ${
       isCompact ? 'py-1 px-3 text-[11px]' : ''
     }`}>
       {/* Location & Ticking Clock */}

@@ -30,7 +30,7 @@ export default function Motto() {
         >
           <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
           <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] text-[#FF5035] uppercase">
-            [ 07 / PHILOSOPHY ]
+            [ PHILOSOPHY ]
           </span>
         </motion.div>
 

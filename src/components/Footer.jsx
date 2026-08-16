@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LocalStatus from './LocalStatus';
 
 export default function Footer() {
   const [dhakaTime, setDhakaTime] = useState('');
@@ -57,12 +58,11 @@ export default function Footer() {
         </div>
 
         {/* Right Side: Live Dhaka Time Widget & Back to Top Trigger */}
-        <div className="flex items-center justify-center lg:justify-end gap-5">
-          {/* Live Dhaka Time Widget */}
-          <div className="flex items-center gap-2 bg-[#111111] border border-[#D6C8B0]/15 px-3 py-1 rounded-md text-[11px]">
-            <span className="text-[#8C8375] uppercase">DHAKA, BD • GMT+6</span>
-            <span className="text-[#FF5035] font-bold">{dhakaTime || '12:00:00 AM'}</span>
-          </div>
+        <div className="flex items-center flex-wrap justify-center lg:justify-end gap-5">
+          
+            <div>
+              <LocalStatus />
+            </div>
 
           {/* Interactive Back to Top Trigger */}
           <button

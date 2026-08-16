@@ -73,12 +73,12 @@ export default function ServicesSection() {
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full">
                 <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
                 <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
-                  [ 02 / SERVICES ]
+                  [ SERVICES ]
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#D6C8B0] uppercase leading-[0.95] mb-6">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#D6C8B0] uppercase md:leading-[0.95] mb-4 md:mb-6">
                 WHAT I <br />
                 <span className="text-[#FF5035]">DO.</span>
               </h2>

@@ -40,10 +40,10 @@ export default function SkillsShowcase() {
   return (
     <section
       id="skills"
-      className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
+      className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] py-14 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
     >
       {/* Side Rail Section Indicator */}
-      <SectionIndicator sectionNumber="04" showSocials={true} />
+      <SectionIndicator sectionNumber="04" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-12">
         {/* Section Header */}
@@ -57,7 +57,7 @@ export default function SkillsShowcase() {
           >
             <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
             <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
-              [ 04 / TECHNICAL CAPABILITIES ]
+              [ TECHNICAL CAPABILITIES ]
             </span>
           </motion.div>
 
@@ -66,7 +66,7 @@ export default function SkillsShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase leading-tight max-w-4xl"
+            className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase leading-tight max-w-4xl"
           >
             ENGINEERED FOR SCALE & <span className="text-[#FF5035]">REAL-TIME PERFORMANCE</span>
           </motion.h2>
