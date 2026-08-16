@@ -7,14 +7,14 @@ export default function Process() {
   const { processSteps } = portfolioData;
 
   return (
-    <section 
-      id="process" 
+    <section
+      id="process"
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-20 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
       <SectionIndicator sectionNumber="03" showSocials={true} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-12 sm:space-y-16">
-        
+
         {/* Section Header */}
         <div className="flex flex-col space-y-3">
           <motion.div

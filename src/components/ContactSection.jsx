@@ -4,7 +4,13 @@ import confetti from 'canvas-confetti';
 import AvailabilityBadge from './AvailabilityBadge';
 import LocalStatus from './LocalStatus';
 
-export default function ContactSection({ onOpenBooking }) {
+const socialLinks = [
+  { label: '[LINKEDIN ↗]', url: 'https://linkedin.com', title: 'LinkedIn' },
+  { label: '[GITHUB ↗]', url: 'https://github.com', title: 'GitHub' },
+  { label: '[X / TWITTER ↗]', url: 'https://twitter.com', title: 'X / Twitter' },
+];
+
+export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,6 +19,15 @@ export default function ContactSection({ onOpenBooking }) {
   });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  const directEmail = 'minhpham.design@gmail.com';
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(directEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,11 +51,12 @@ export default function ContactSection({ onOpenBooking }) {
   };
 
   return (
-    <section id="contact-form" className="relative w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <section id="contact-form" className="relative w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black overflow-hidden">
+      {/* Outer 2-Column Grid Container with Precise Col Spans */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-        {/* Left Column: Heading, Availability Status & Local Live Clock */}
-        <div className="lg:col-span-5 space-y-6">
+        {/* Left Column: Heading, Availability Status & Direct Contact Badges */}
+        <div className="lg:col-span-6 xl:col-span-7 w-full overflow-hidden space-y-6">
           <div className="space-y-4">
             <AvailabilityBadge text="AVAILABLE FOR NEW PROJECTS 2026" />
             <div>
@@ -48,40 +64,49 @@ export default function ContactSection({ onOpenBooking }) {
             </div>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-6xl font-extrabold text-white leading-tight uppercase">
+          {/* Dynamic Clamped & Word-Wrapped Headline */}
+          <h2 className="text-[clamp(2.2rem,4vw,4.25rem)] font-extrabold tracking-tight leading-[0.92] uppercase text-white break-words font-display">
             Let's build something <span className="text-[#FF5035]">extraordinary</span> together.
           </h2>
 
-          <p className="text-base text-[#8C8375] leading-relaxed">
-            Have a project in mind, a design query, or want to discuss interactive 3D experiences? Send a message directly or schedule a 15-minute call.
+          <p className="text-base sm:text-lg text-[#8C8375] font-normal leading-relaxed max-w-xl">
+            Have a project in mind, need full-stack architecture, or want to build interactive web experiences? Drop a message below or email directly.
           </p>
 
-          <div className="pt-2 flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={onOpenBooking}
-              className="px-5 py-3 text-xs font-mono font-bold tracking-wider text-black bg-[#FF5035] rounded-full hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2"
-            >
-              <span>BOOK A 15-MIN CALL</span>
-              <span>📅</span>
-            </button>
+          {/* Direct Email & Copy Badge */}
+          <div className="space-y-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${directEmail}`}
+                className="font-mono text-xs sm:text-sm text-[#D6C8B0] bg-[#111111] border border-[#D6C8B0]/20 hover:border-[#FF5035] hover:text-[#FF5035] px-4 py-2.5 rounded-full transition-all duration-300 inline-flex items-center gap-2 shadow-sm"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse shrink-0" />
+                <span className="truncate">{directEmail}</span>
+                <span className="text-[10px] text-[#8C8375]">✉</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="font-mono text-xs text-[#8C8375] bg-[#090909] border border-[rgba(214,200,176,0.15)] hover:border-[#FF5035] hover:text-white px-3.5 py-2.5 rounded-full transition-all duration-300 cursor-pointer shrink-0"
+                title="Copy Email Address"
+              >
+                {copied ? '[COPIED! ✓]' : '[COPY]'}
+              </button>
+            </div>
           </div>
 
-          <div className="pt-4 space-y-3 font-mono text-sm border-t border-[rgba(214,200,176,0.1)]">
-            <div>
-              <span className="text-[#8C8375] uppercase block text-xs">Direct Email:</span>
-              <a href="mailto:minhpham.design@gmail.com" className="text-white font-bold hover:text-[#FF5035] transition-colors">
-                minhpham.design@gmail.com
-              </a>
-            </div>
-            <div>
-              <span className="text-[#8C8375] uppercase block text-xs">Response Time:</span>
-              <span className="text-[#D6C8B0]">Within 24 hours</span>
+          {/* Response Time Indicator */}
+          <div className="pt-4 space-y-2 font-mono text-xs border-t border-[rgba(214,200,176,0.1)]">
+            <div className="flex items-center gap-2">
+              <span className="text-[#8C8375] uppercase">Average Response Time:</span>
+              <span className="text-[#D6C8B0] font-bold">Within 24 Hours</span>
             </div>
           </div>
         </div>
 
         {/* Right Column: Contact Form */}
-        <div className="lg:col-span-7 bg-[#0B0B0B] border border-[rgba(214,200,176,0.15)] p-6 sm:p-10 rounded-xl shadow-2xl">
+        <div className="lg:col-span-6 xl:col-span-5 w-full bg-[#0B0B0B] border border-[rgba(214,200,176,0.15)] p-6 sm:p-10 rounded-xl shadow-2xl">
           {submitted ? (
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -96,14 +121,24 @@ export default function ContactSection({ onOpenBooking }) {
                 Thank you for reaching out, {formData.name}. I'll review your project details and get back to you shortly.
               </p>
               <button
+                type="button"
                 onClick={() => setSubmitted(false)}
-                className="mt-4 px-6 py-2.5 text-xs font-mono font-bold text-black bg-[#FF5035] rounded-full uppercase tracking-wider hover:bg-white transition-colors"
+                className="mt-4 px-6 py-2.5 text-xs font-mono font-bold text-black bg-[#FF5035] rounded-full uppercase tracking-wider hover:bg-white transition-colors cursor-pointer"
               >
                 Send Another Message
               </button>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="flex items-center justify-between border-b border-[rgba(214,200,176,0.1)] pb-4 mb-2">
+                <span className="text-xs font-mono text-[#FF5035] uppercase font-bold tracking-wider">
+                  [ DIRECT PROJECT BRIEF FORM ]
+                </span>
+                <span className="text-xs font-mono text-[#8C8375]">
+                  Instant Dispatch
+                </span>
+              </div>
+
               {error && (
                 <div className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 text-xs rounded font-mono">
                   {error}
@@ -120,7 +155,7 @@ export default function ContactSection({ onOpenBooking }) {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
+                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -133,7 +168,7 @@ export default function ContactSection({ onOpenBooking }) {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
+                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -145,12 +180,12 @@ export default function ContactSection({ onOpenBooking }) {
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
+                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
                 >
-                  <option value="Web Development">Web App Development</option>
-                  <option value="3D & WebGL Experience">3D & WebGL Experience</option>
-                  <option value="Product Design">Product & UI/UX Design</option>
-                  <option value="Consulting">Design System Consulting</option>
+                  <option value="Web Development">Full-Stack Web App</option>
+                  <option value="SaaS Engineering">SaaS & Product Engineering</option>
+                  <option value="3D & Interactive UI">3D & WebGL Experience</option>
+                  <option value="Performance Tuning">Performance & Code Optimization</option>
                 </select>
               </div>
 
@@ -163,13 +198,13 @@ export default function ContactSection({ onOpenBooking }) {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about your project goals, timeline, and vision..."
-                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors resize-none"
+                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 text-xs font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-4 text-xs font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded-lg uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>SEND MESSAGE</span>
                 <span>→</span>

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import CursorFollower from './components/CursorFollower';
 import Hero from './components/Hero';
-import Services from './components/Services';
+import ServicesSection from './components/ServicesSection';
 import Experience from './components/Experience';
 import History from './components/History';
 import Process from './components/Process';
 import InteractivePlayground from './components/InteractivePlayground';
 import GitHubStats from './components/GitHubStats';
-import Clients from './components/Clients';
+import SkillsShowcase from './components/SkillsShowcase';
 import Testimonials from './components/Testimonials';
 import ProjectsShowcase from './components/ProjectsShowcase';
 import Motto from './components/Motto';
@@ -85,13 +85,13 @@ export default function App() {
       {/* Main Single Page High-Converting Experience */}
       <main className="relative w-full overflow-hidden">
         <Hero setCursorState={setCursorState} />
-        <Services />
+        <ServicesSection />
         <Experience />
         <History />
         <Process />
         <InteractivePlayground />
         <GitHubStats />
-        <Clients />
+        <SkillsShowcase />
         <Testimonials />
         <ProjectsShowcase
           setCursorState={setCursorState}
