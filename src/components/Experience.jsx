@@ -11,7 +11,7 @@ export default function Experience() {
       id="experience" 
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-24 px-6 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
-      <SectionIndicator sectionNumber="03" showSocials={true} showScrollRight={true} />
+      <SectionIndicator sectionNumber="03" showScrollRight={true} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         

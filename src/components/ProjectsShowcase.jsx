@@ -19,7 +19,7 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-20 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
     >
       {/* Side Rail Section Indicator */}
-      <SectionIndicator sectionNumber="07" showSocials={true} />
+      <SectionIndicator sectionNumber="07"/>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-10 sm:space-y-14">
         

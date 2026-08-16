@@ -27,6 +27,13 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Suppress default browser cursor on desktop fine-pointer devices */
+  @media (pointer: fine) {
+    body, a, button, select, input, textarea, [role="button"], .cursor-pointer {
+      cursor: none !important;
+    }
+  }
+
   ::selection {
     background-color: #FF5035;
     color: #000000;

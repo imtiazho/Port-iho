@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import AvailabilityBadge from './AvailabilityBadge';
 import LocalStatus from './LocalStatus';
+import SectionIndicator from './SectionIndicator';
 
 const socialLinks = [
   { label: '[LINKEDIN ↗]', url: 'https://linkedin.com', title: 'LinkedIn' },
@@ -52,12 +53,21 @@ export default function ContactSection() {
 
   return (
     <section id="contact-form" className="relative w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black overflow-hidden">
+      <SectionIndicator sectionNumber="08" />
+
       {/* Outer 2-Column Grid Container with Precise Col Spans */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
 
         {/* Left Column: Heading, Availability Status & Direct Contact Badges */}
         <div className="lg:col-span-6 xl:col-span-7 w-full overflow-hidden space-y-6">
           <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full w-fit">
+              <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
+              <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
+                [ 08 / CONTACT ]
+              </span>
+            </div>
+
             <AvailabilityBadge text="AVAILABLE FOR NEW PROJECTS 2026" />
             <div>
               <LocalStatus />
@@ -93,6 +103,21 @@ export default function ContactSection() {
               >
                 {copied ? '[COPIED! ✓]' : '[COPY]'}
               </button>
+            </div>
+
+            {/* Social / Professional Links Pills */}
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs text-[#D6C8B0] bg-[#0B0B0B] border border-[#D6C8B0]/20 hover:border-[#FF5035] hover:text-[#FF5035] px-3.5 py-2 rounded-full transition-all duration-300 inline-flex items-center gap-1 cursor-pointer"
+                >
+                  {social.label}
+                </a>
+              ))}
             </div>
           </div>
 

@@ -3,14 +3,10 @@ import Navbar from './components/Navbar';
 import CursorFollower from './components/CursorFollower';
 import Hero from './components/Hero';
 import ServicesSection from './components/ServicesSection';
-import Experience from './components/Experience';
-import History from './components/History';
-import Process from './components/Process';
-import InteractivePlayground from './components/InteractivePlayground';
-import GitHubStats from './components/GitHubStats';
-import SkillsShowcase from './components/SkillsShowcase';
-import Testimonials from './components/Testimonials';
 import ProjectsShowcase from './components/ProjectsShowcase';
+import SkillsShowcase from './components/SkillsShowcase';
+import Process from './components/Process';
+import GitHubStats from './components/GitHubStats';
 import Motto from './components/Motto';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -68,7 +64,7 @@ export default function App() {
         onClose={() => setSelectedProject(null)}
       />
 
-      {/* Direct Cal.com / Calendly Booking Modal */}
+      {/* Direct Booking Modal */}
       <BookingModal
         isOpen={bookingOpen}
         onClose={() => setBookingOpen(false)}
@@ -84,25 +80,54 @@ export default function App() {
 
       {/* Main Single Page High-Converting Experience */}
       <main className="relative w-full overflow-hidden">
-        <Hero setCursorState={setCursorState} />
-        <ServicesSection />
-        <Experience />
-        <History />
-        <Process />
-        <InteractivePlayground />
-        <GitHubStats />
-        <SkillsShowcase />
-        <Testimonials />
-        <ProjectsShowcase
-          setCursorState={setCursorState}
-          onSelectProject={(proj) => setSelectedProject(proj)}
-        />
-        <Motto />
-        <ContactSection onOpenBooking={() => setBookingOpen(true)} />
+        {/* 01 / HERO */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <Hero setCursorState={setCursorState} />
+        </div>
+
+        {/* 02 / SERVICES */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <ServicesSection />
+        </div>
+
+        {/* 03 / FEATURED PROJECTS (MOVED UP FOR IMMEDIATE PROOF OF WORK) */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <ProjectsShowcase
+            setCursorState={setCursorState}
+            onSelectProject={(proj) => setSelectedProject(proj)}
+          />
+        </div>
+
+        {/* 04 / TECHNICAL CAPABILITIES */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <SkillsShowcase />
+        </div>
+
+        {/* 05 / PROCESS */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <Process />
+        </div>
+
+        {/* 06 / ACTIVITY */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <GitHubStats />
+        </div>
+
+        {/* 07 / PHILOSOPHY (CONTAINS Glove3D BACKGROUND) */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <Motto />
+        </div>
+
+        {/* 08 / CONTACT */}
+        <div className="w-full max-w-full overflow-hidden relative z-10">
+          <ContactSection />
+        </div>
       </main>
 
-      {/* Footer / Contact Info */}
-      <Footer />
+      {/* 09 / SYSTEM - Terminal Footer */}
+      <div className="w-full max-w-full overflow-hidden relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }

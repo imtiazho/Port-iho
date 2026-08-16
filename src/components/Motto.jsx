@@ -12,7 +12,7 @@ export default function Motto() {
       id="motto"
       className="relative overflow-hidden min-h-[70vh] w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-20 sm:py-28 px-6 lg:px-24 border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
     >
-      <SectionIndicator sectionNumber="08" showSocials={true} />
+      <SectionIndicator sectionNumber="07" />
 
       {/* 3D Interactive Glove / Globe Canvas in Background */}
       <Glove3D />
@@ -30,7 +30,7 @@ export default function Motto() {
         >
           <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
           <span className="text-xs sm:text-sm font-mono font-bold tracking-[0.25em] text-[#FF5035] uppercase">
-            MY MOTTO
+            [ 07 / PHILOSOPHY ]
           </span>
         </motion.div>
 

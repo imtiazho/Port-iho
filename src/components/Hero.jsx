@@ -12,7 +12,7 @@ export default function Hero({ setCursorState }) {
       id="hero" 
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex flex-col justify-center sm:pt-12 pb-16 px-4 sm:px-8 lg:px-20 xl:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
     >
-      <SectionIndicator sectionNumber="01" showSocials={true} showScrollRight={true} />
+      <SectionIndicator sectionNumber="01" showScrollRight={true} />
 
       {/* Background Cinematic Monochrome Portrait */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-30 sm:opacity-40 lg:opacity-50">

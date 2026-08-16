@@ -54,7 +54,7 @@ export default function ServicesSection() {
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] py-12 md:py-24 px-6 md:px-16 overflow-x-hidden border-b border-[#D6C8B0]/15 selection:bg-[#FF5035] selection:text-black"
     >
       {/* Side Rail Section Indicator */}
-      <SectionIndicator sectionNumber="02" showSocials={true} />
+      <SectionIndicator sectionNumber="02" />
 
       {/* Main Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto">

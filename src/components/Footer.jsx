@@ -25,6 +25,12 @@ export default function Footer() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(directEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -39,7 +45,7 @@ export default function Footer() {
         {/* Left Side: Copyright & Blinking System Availability Status */}
         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-center lg:text-left">
           <span className="text-[#D6C8B0] font-bold">
-            © 2026 IMTIAZ • ALL RIGHTS RESERVED
+            © 2026 IMTIAZHO • ALL RIGHTS RESERVED
           </span>
           <span className="text-[#D6C8B0]/20 hidden sm:inline">•</span>
           <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full text-[11px]">
@@ -48,34 +54,6 @@ export default function Footer() {
               [SYSTEM: AVAILABLE FOR HIRE]
             </span>
           </div>
-        </div>
-
-        {/* Center Side: Essential Professional Links & Direct Email Action */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#D6C8B0] hover:text-[#FF5035] hover:underline underline-offset-4 transition-colors font-semibold"
-          >
-            [GITHUB ↗]
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#D6C8B0] hover:text-[#FF5035] hover:underline underline-offset-4 transition-colors font-semibold"
-          >
-            [LINKEDIN ↗]
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#D6C8B0] hover:text-[#FF5035] hover:underline underline-offset-4 transition-colors font-semibold"
-          >
-            [X / TWITTER ↗]
-          </a>
         </div>
 
         {/* Right Side: Live Dhaka Time Widget & Back to Top Trigger */}

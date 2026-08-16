@@ -1,20 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionIndicator from './SectionIndicator';
-import { portfolioData } from '../data/portfolioData';
+
+const processSteps = [
+  {
+    num: '1',
+    code: '01 / ARCHITECTURE & BRIEF',
+    title: 'ARCHITECTURE & BRIEF',
+    description: 'Initial scope, tech stack setup & API design.',
+  },
+  {
+    num: '2',
+    code: '02 / PROTOTYPING & UI',
+    title: 'PROTOTYPING & UI',
+    description: 'Interactive UI layouts & motion design validation.',
+  },
+  {
+    num: '3',
+    code: '03 / FULL-STACK DEV',
+    title: 'FULL-STACK DEV',
+    description: 'Clean modular implementation with React, Node & DB.',
+  },
+  {
+    num: '4',
+    code: '04 / TESTING & AUDIT',
+    title: 'TESTING & AUDIT',
+    description: 'Performance optimization, security & code quality checks.',
+  },
+  {
+    num: '5',
+    code: '05 / DEPLOYMENT',
+    title: 'DEPLOYMENT',
+    description: 'CI/CD setup, production release & documentation.',
+  },
+];
 
 export default function Process() {
-  const { processSteps } = portfolioData;
-
   return (
     <section
       id="process"
-      className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-20 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)]"
+      className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
     >
-      <SectionIndicator sectionNumber="03" showSocials={true} />
+      {/* Side Rail Section Indicator */}
+      <SectionIndicator sectionNumber="05" showSocials={true} />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-12 sm:space-y-16">
-
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-16 lg:space-y-24">
+        
         {/* Section Header */}
         <div className="flex flex-col space-y-3">
           <motion.div
@@ -22,13 +53,11 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3"
+            className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full w-fit"
           >
-            <span className="lg:hidden text-xs font-bold text-[#FF5035] font-mono tracking-widest">
-              PROCESS
-            </span>
-            <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] text-[#8C8375] uppercase">
-              ENGINEERING ROADMAP
+            <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
+            <span className="text-xs font-mono tracking-widest text-[#FF5035] uppercase font-bold">
+              [ 05 / PROCESS ]
             </span>
           </motion.div>
 
@@ -37,47 +66,107 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#D6C8B0]"
+            className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase max-w-4xl"
           >
-            How I turn complex visions into <span className="text-[#FF5035]">award-winning</span> products
+            ENGINEERING ROADMAP & <span className="text-[#FF5035]">DELIVERY PROCESS</span>
           </motion.h2>
         </div>
 
-        {/* 5-Step Process Roadmap Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-6">
+        {/* DESKTOP LAYOUT (>1024px / lg): Horizontal Timeline with Alternating Top/Bottom Cards */}
+        <div className="hidden lg:block relative w-full py-12">
+          {/* Static Active Orange Glowing Horizontal Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 bg-[#FF5035] shadow-[0_0_12px_rgba(255,80,53,0.6)] z-10" />
+
+          {/* 5-Column Grid with Alternating Cards */}
+          <div className="grid grid-cols-5 gap-6 relative z-20 items-center min-h-[440px]">
+            {processSteps.map((step, idx) => {
+              const isAbove = idx % 2 === 0; // Steps 1, 3, 5 ABOVE line; Steps 2, 4 BELOW line
+
+              return (
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, y: isAbove ? -30 : 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="flex flex-col items-center relative h-full justify-between"
+                >
+                  {/* TOP CONTAINER: Card if isAbove, else Empty Spacer */}
+                  <div className="w-full flex flex-col justify-end pb-8 h-[200px]">
+                    {isAbove && (
+                      <div className="group bg-[#111111]/80 border border-[#D6C8B0]/15 p-6 rounded-2xl backdrop-blur-md hover:border-[#FF5035]/60 hover:shadow-[0_0_25px_rgba(255,80,53,0.2)] transition-all duration-300 flex flex-col space-y-2">
+                        <span className="font-mono text-xs text-[#FF5035] font-bold tracking-wider">
+                          {step.code}
+                        </span>
+                        <h3 className="font-mono text-sm font-bold text-white uppercase group-hover:text-[#FF5035] transition-colors leading-tight">
+                          {step.title}
+                        </h3>
+                        <p className="text-xs text-[#8C8375] font-sans leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* CENTER CIRCULAR STEP BADGE (Rendered over the line) */}
+                  <div className="relative z-30 my-auto">
+                    <div className="w-12 h-12 rounded-full border-2 border-[#FF5035] bg-[#090909] text-[#FF5035] font-mono text-base font-bold flex items-center justify-center shadow-[0_0_15px_rgba(255,80,53,0.5)] hover:scale-110 hover:bg-[#FF5035] hover:text-black transition-all duration-300 cursor-default">
+                      {step.num}
+                    </div>
+                  </div>
+
+                  {/* BOTTOM CONTAINER: Card if !isAbove, else Empty Spacer */}
+                  <div className="w-full flex flex-col justify-start pt-8 h-[200px]">
+                    {!isAbove && (
+                      <div className="group bg-[#111111]/80 border border-[#D6C8B0]/15 p-6 rounded-2xl backdrop-blur-md hover:border-[#FF5035]/60 hover:shadow-[0_0_25px_rgba(255,80,53,0.2)] transition-all duration-300 flex flex-col space-y-2">
+                        <span className="font-mono text-xs text-[#FF5035] font-bold tracking-wider">
+                          {step.code}
+                        </span>
+                        <h3 className="font-mono text-sm font-bold text-white uppercase group-hover:text-[#FF5035] transition-colors leading-tight">
+                          {step.title}
+                        </h3>
+                        <p className="text-xs text-[#8C8375] font-sans leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* MOBILE & TABLET LAYOUT (<1024px / lg:hidden): Vertical Progress Line with Cards on Right */}
+        <div className="lg:hidden relative pl-16 space-y-10">
+          {/* Static Active Orange Glowing Vertical Line */}
+          <div className="absolute top-0 bottom-0 left-6 w-[2px] bg-[#FF5035] shadow-[0_0_12px_rgba(255,80,53,0.6)] z-10" />
+
           {processSteps.map((step, idx) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={step.num}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.12 }}
-              className="group relative bg-[#0B0B0B] border border-[rgba(214,200,176,0.12)] p-5 rounded-lg flex flex-col justify-between hover:border-[#FF5035]/60 transition-all duration-300 hover:-translate-y-1 shadow-lg"
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="relative group"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-2xl font-extrabold text-[#FF5035]">
-                    {step.step}
-                  </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[rgba(214,200,176,0.3)] group-hover:bg-[#FF5035] transition-colors" />
-                </div>
-
-                <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-[#FF5035] transition-colors">
-                  {step.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-[#8C8375] leading-relaxed mb-6 font-sans">
-                  {step.description}
-                </p>
+              {/* Vertical Circular Step Badge */}
+              <div className="absolute left-[-4.0rem] top-3 z-20 w-11 h-11 rounded-full border-2 border-[#FF5035] bg-[#090909] text-[#FF5035] font-mono text-sm font-bold flex items-center justify-center shadow-[0_0_12px_rgba(255,80,53,0.5)]">
+                {step.num}
               </div>
 
-              <div className="pt-3 border-t border-[rgba(214,200,176,0.1)]">
-                <span className="text-[10px] font-mono text-[#D6C8B0]/70 uppercase tracking-wider block">
-                  Deliverable:
+              {/* Compact Card Container */}
+              <div className="bg-[#111111]/80 border border-[#D6C8B0]/15 p-6 rounded-2xl backdrop-blur-md hover:border-[#FF5035]/60 transition-all duration-300 shadow-xl space-y-2">
+                <span className="font-mono text-xs text-[#FF5035] font-bold tracking-wider block">
+                  {step.code}
                 </span>
-                <span className="text-xs font-semibold text-[#D6C8B0] block truncate">
-                  {step.deliverable}
-                </span>
+                <h3 className="font-mono text-base font-bold text-white uppercase leading-snug group-hover:text-[#FF5035] transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#8C8375] font-sans leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             </motion.div>
           ))}
