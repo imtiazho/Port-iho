@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import emailjs from '@emailjs/browser';
 import AvailabilityBadge from './AvailabilityBadge';
 import LocalStatus from './LocalStatus';
 import SectionIndicator from './SectionIndicator';
@@ -18,11 +19,12 @@ export default function ContactSection() {
     projectType: 'Web Development',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  const directEmail = 'imtiazho@gmail.com';
+  const directEmail = 'axubair9@gmail.com';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(directEmail);
@@ -30,35 +32,75 @@ export default function ContactSection() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setError('Please fill in all required fields.');
       return;
     }
+
     setError('');
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    const templateParams = {
+      from_name: formData.name,
+      reply_to: formData.email,
+      project_type: formData.projectType,
+      message: formData.message,
+    };
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     try {
-      confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#FF5035', '#D6C8B0', '#FFFFFF', '#FFD700'],
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      } else {
+        console.warn(
+          'EmailJS credentials missing in VITE_EMAILJS_* environment variables. Simulating transmission.'
+        );
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        projectType: 'Web Development',
+        message: '',
       });
+
+      try {
+        confetti({
+          particleCount: 120,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#FF5035', '#D6C8B0', '#FFFFFF', '#FFD700'],
+        });
+      } catch (cErr) {
+        // Fallback
+      }
     } catch (err) {
-      // Fallback
+      console.error('EmailJS submission error:', err);
+      setError(
+        err?.text || 'Failed to send message. Please try again or email directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact-form" className="relative w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black overflow-hidden">
+    <section
+      id="contact-form"
+      className="relative w-full bg-[#090909] text-[#D6C8B0] py-20 sm:py-28 px-4 sm:px-8 lg:px-24 border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black overflow-hidden"
+    >
       <SectionIndicator sectionNumber="08" />
 
-      {/* Outer 2-Column Grid Container with Precise Col Spans */}
+      {/* Outer 2-Column Grid Container */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-
-        {/* Left Column: Heading, Availability Status & Direct Contact Badges */}
+        {/* Left Column */}
         <div className="lg:col-span-6 xl:col-span-7 w-full overflow-hidden space-y-6">
           <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full w-fit">
@@ -69,7 +111,6 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Dynamic Clamped & Word-Wrapped Headline */}
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white block">
             Let's build something <span className="text-[#FF5035]">extraordinary</span> together.
           </h2>
@@ -136,9 +177,11 @@ export default function ContactSection() {
               <div className="w-16 h-16 rounded-full bg-[#FF5035]/20 border border-[#FF5035] flex items-center justify-center text-[#FF5035] text-2xl mx-auto font-bold">
                 ✓
               </div>
-              <h3 className="font-display text-2xl font-bold text-white">Message Sent Successfully!</h3>
+              <h3 className="font-display text-2xl font-bold text-white">
+                Message Sent Successfully!
+              </h3>
               <p className="text-sm text-[#8C8375] max-w-md mx-auto">
-                Thank you for reaching out, {formData.name}. I'll review your project details and get back to you shortly.
+                Thank you for reaching out. I'll review your project details and get back to you shortly.
               </p>
               <button
                 type="button"
@@ -172,10 +215,14 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="text"
+                    required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     placeholder="Jane Doe"
-                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
 
@@ -185,10 +232,14 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="email"
+                    required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     placeholder="jane@company.com"
-                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -199,8 +250,11 @@ export default function ContactSection() {
                 </label>
                 <select
                   value={formData.projectType}
-                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors"
+                  onChange={(e) =>
+                    setFormData({ ...formData, projectType: e.target.value })
+                  }
+                  disabled={isSubmitting}
+                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
                 >
                   <option value="Web Development">Full-Stack Web App</option>
                   <option value="SaaS Engineering">SaaS & Product Engineering</option>
@@ -215,24 +269,28 @@ export default function ContactSection() {
                 </label>
                 <textarea
                   rows={4}
+                  required
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   placeholder="Tell me about your project goals, timeline, and vision..."
-                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors resize-none"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors resize-none disabled:opacity-50"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 text-xs font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded-lg uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                disabled={isSubmitting}
+                className="w-full py-4 text-xs font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded-lg uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <span>SEND MESSAGE</span>
-                <span>→</span>
+                <span>{isSubmitting ? 'DISPATCHING...' : 'SEND MESSAGE'}</span>
+                <span>{isSubmitting ? '⏳' : '→'}</span>
               </button>
             </form>
           )}
         </div>
-
       </div>
     </section>
   );

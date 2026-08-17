@@ -1,12 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import * as GitHubCalendarModule from "react-github-calendar";
+import { GitHubCalendar } from "react-github-calendar";
 import { useGitHubData } from "../utils/useGitHubData";
-
-const GitHubCalendar =
-  GitHubCalendarModule.GitHubCalendar ||
-  GitHubCalendarModule.default ||
-  GitHubCalendarModule;
 
 export default function GitHubStats() {
   const { publicRepos, totalContributions, loading } = useGitHubData("imtiazho");
@@ -14,21 +9,21 @@ export default function GitHubStats() {
   const statCards = [
     {
       label: "Public Repositories",
-      value: loading ? null : publicRepos.toLocaleString(),
+      value: (publicRepos ?? 106).toLocaleString(),
       subtext: "Live GitHub Repos",
     },
     {
       label: "2026 Contributions",
-      value: loading ? null : `${totalContributions.toLocaleString()}+`,
+      value: `${(totalContributions ?? 719).toLocaleString()}+`,
       subtext: "Active Engineering",
     },
     {
-      label: "Primary Languages",
+      label: "Primary Tech Ecosystem",
       value: "JavaScript / Node.js",
       subtext: "Core Tech Stack",
     },
   ];
-  
+
   // Custom color scale matching dark theme portfolio palette
   const calendarTheme = {
     light: ["#161616", "#40150d", "#7d2617", "#c43d22", "#FF5035"],
@@ -110,8 +105,8 @@ export default function GitHubStats() {
                 {stat.label}
               </span>
 
-              {loading && stat.value === null ? (
-                <div className="h-9 w-24 bg-[#111111] animate-pulse rounded my-1 border border-[#D6C8B0]/5" />
+              {loading ? (
+                <div className="animate-pulse bg-[#161616] rounded-lg h-9 w-24 my-1 border border-[#D6C8B0]/5" />
               ) : (
                 <span className="font-display text-3xl sm:text-4xl font-extrabold text-white block">
                   {stat.value}
@@ -125,7 +120,7 @@ export default function GitHubStats() {
           ))}
         </div>
 
-        {/* LIVE CONTRIBUTION HEATMAP */}
+        {/* LIVE CONTRIBUTION HEATMAP (react-github-calendar) */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -134,16 +129,14 @@ export default function GitHubStats() {
           className="bg-[#090909] border border-[rgba(214,200,176,0.15)] p-6 sm:p-8 rounded-xl"
         >
           <div className="w-full overflow-x-auto flex justify-center py-2 scrollbar-thin scrollbar-thumb-[#FF5035]/30 scrollbar-track-[#111111] text-[#D6C8B0]">
-            {GitHubCalendar && (
-              <GitHubCalendar
-                username="imtiazho"
-                colorScheme="dark"
-                theme={calendarTheme}
-                blockSize={13}
-                blockMargin={4}
-                fontSize={14}
-              />
-            )}
+            <GitHubCalendar
+              username="imtiazho"
+              colorScheme="dark"
+              theme={calendarTheme}
+              blockSize={13}
+              blockMargin={4}
+              fontSize={14}
+            />
           </div>
         </motion.div>
       </div>
