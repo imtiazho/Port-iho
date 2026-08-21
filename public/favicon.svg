@@ -1,7 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Background circle outline -->
-  <circle cx="256" cy="256" r="216" fill="none" stroke="#FF5035" stroke-width="40" />
-  
-  <!-- Letter 'I' -->
-  <path fill="#FF5035" d="M192 120h128v48h-40v176h40v48H192v-48h40V168h-40z"/>
+  <defs>
+    <!-- Vibrant Neon Cyber Orange Gradient -->
+    <linearGradient id="cyberOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5035" />
+      <stop offset="100%" stop-color="#FF7862" />
+    </linearGradient>
+
+    <!-- Glowing Effect for Tab Visibility -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer Cyber Shield Border (Bold & Bright) -->
+  <path
+    d="M256 40 L430 108 V250 C430 355 358 448 256 484 C154 448 82 355 82 250 V108 L256 40 Z"
+    fill="none"
+    stroke="url(#cyberOrange)"
+    stroke-width="32"
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  />
+
+  <!-- Inner Subtle Accent Shield Contour -->
+  <path
+    d="M256 90 L380 138 V245 C380 325 325 398 256 428 C187 398 132 325 132 245 V138 L256 90 Z"
+    fill="none"
+    stroke="#FFFFFF"
+    stroke-opacity="0.6"
+    stroke-width="12"
+    stroke-linejoin="round"
+  />
+
+  <!-- Top Live Indicator Node -->
+  <circle cx="256" cy="140" r="20" fill="#10B981" />
 </svg>

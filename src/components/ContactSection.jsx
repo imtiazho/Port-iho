@@ -285,7 +285,7 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 className="w-full py-4 text-[10px] sm:text-sm font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded-lg uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <span>{isSubmitting ? 'DISPATCHING...' : 'SEND MESSAGE'}</span>
+                <span>{isSubmitting ? 'DISPATCHING ' : 'SEND MESSAGE'}</span>
                 <span>{isSubmitting ? '⏳' : '→'}</span>
               </button>
             </form>
