@@ -53,10 +53,12 @@ export default function Motto() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex items-center gap-4 pt-4"
         >
-          <span className="text-xs sm:text-sm text-[#8C8375] font-mono tracking-widest uppercase">
+          {/* <span className="text-xs sm:text-sm text-[#8C8375] font-mono tracking-widest uppercase">
             — {motto.author}
-          </span>
-          <div className="w-3 h-3 rounded-full bg-[#FF5035] shadow-[0_0_15px_rgba(255,80,53,0.8)]" />
+          </span> */}
+          <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#FF5035] shadow-[0_0_15px_rgba(255,80,53,0.8)]" />
+          <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#FF5035] shadow-[0_0_15px_rgba(255,80,53,0.8)]" />
+          <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#FF5035] shadow-[0_0_15px_rgba(255,80,53,0.8)]" />
         </motion.div>
 
       </div>

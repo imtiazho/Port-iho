@@ -145,49 +145,56 @@ export default function GitHubStats() {
           </div>
         </motion.div>
 
-        <div className="bg-[#090909] border border-[rgba(214,200,176,0.12)] p-5 rounded-lg space-y-3 font-mono">
+        <div className="bg-[#090909] border border-[rgba(214,200,176,0.12)] p-4 sm:p-6 rounded-lg space-y-4 font-mono w-full overflow-hidden">
           {/* GitHub Specific Header */}
-          <div className="flex items-center justify-between border-b border-white/10 pb-2 text-xs text-[#8C8375]">
-            <span className="flex items-center gap-1.5 text-[#D6C8B0]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 text-xs text-[#8C8375]">
+            <span className="flex items-center gap-1.5 text-[#D6C8B0] font-bold tracking-wider">
               <span className="text-[#FF5035]">⚡</span> GITHUB_WORKFLOW_METRICS
             </span>
-            <span className="text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/20">
+            <span className="text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/20 w-fit text-[10px] sm:text-xs">
               PROFILE_ACTIVE
             </span>
           </div>
 
-          {/* Metric Items */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+          {/* Metric Items Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
             {githubMetrics.map((item, i) => (
               <div
                 key={i}
                 className="bg-[#111111] p-3.5 rounded border border-white/5 space-y-1 hover:border-[#FF5035]/40 transition-colors"
               >
-                <span className="text-[10px] text-[#8C8375] uppercase block font-bold">
+                <span className="text-[10px] text-[#8C8375] uppercase block font-bold tracking-wide">
                   {item.label}
                 </span>
-                <span className="text-sm font-bold text-white block">
+                <span className="text-sm font-bold text-white block truncate">
                   {item.value}
                 </span>
-                <span className="text-[10px] text-[#FF5035] block">
+                <span className="text-[10px] text-[#FF5035] block truncate">
                   ● {item.detail}
                 </span>
               </div>
             ))}
           </div>
 
+          {/* Visual Separator */}
+          <div className="border-t border-white/5 my-2" />
 
-          <div className="space-y-2.5 text-xs">
+          {/* Commit Logs List */}
+          <div className="space-y-3 text-xs">
             {commitLogs.map((log, i) => (
               <div
                 key={i}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[#D6C8B0]"
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[#D6C8B0] bg-[#111111]/40 sm:bg-transparent p-2 sm:p-0 rounded"
               >
-                <span className="truncate">
-                  <span className="text-[#FF5035]">[{log.repo}]</span>{" "}
-                  {log.message}
-                </span>
-                <span className="text-[10px] text-[#8C8375] bg-[#111111] px-2 py-0.5 rounded border border-white/5 shrink-0 self-start sm:self-auto">
+                <div className="flex items-start sm:items-center gap-1.5 min-w-0 pr-2">
+                  <span className="text-[#FF5035] font-bold shrink-0">
+                    [{log.repo}]
+                  </span>
+                  <span className="text-[#D6C8B0] truncate leading-relaxed">
+                    {log.message}
+                  </span>
+                </div>
+                <span className="text-[9px] sm:text-[10px] text-[#8C8375] bg-[#111111] px-2 py-0.5 rounded border border-white/5 shrink-0 self-start sm:self-auto font-semibold tracking-wider">
                   {log.tag}
                 </span>
               </div>
