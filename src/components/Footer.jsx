@@ -52,7 +52,7 @@ export default function Footer() {
           <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#111111] border border-[#D6C8B0]/15 rounded-full text-[11px]">
             <span className="w-2 h-2 rounded-full bg-[#FF5035] animate-pulse" />
             <span className="text-[#FF5035] uppercase font-bold tracking-wider">
-              [SYSTEM: AVAILABLE FOR HIRE]
+              [ENGINE STATUS: ACTIVE & READY TO BUILD]
             </span>
           </div>
         </div>

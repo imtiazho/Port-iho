@@ -14,7 +14,7 @@ export default function GitHubStats() {
     },
     {
       label: "2026 Contributions",
-      value: `${(totalContributions ?? 719).toLocaleString()}+`,
+      value: `${(totalContributions).toLocaleString()}+`,
       subtext: "Active Engineering",
     },
     {
@@ -62,7 +62,7 @@ export default function GitHubStats() {
               >
                 <span className="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]" />
                 <span className="text-[#10B981] tracking-wider uppercase font-bold">
-                  ● LIVE SYNCED: @imtiazho
+                  LIVE SYNCED: @imtiazho
                 </span>
               </motion.div>
             </div>

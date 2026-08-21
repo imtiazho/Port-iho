@@ -40,7 +40,7 @@ export default function Motto() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="hero-headline text-[13vw] sm:text-[10vw] lg:text-[7rem] xl:text-[8rem] font-extrabold tracking-[-0.055em] leading-[0.86] text-[#D6C8B0] uppercase max-w-5xl drop-shadow-2xl"
+          className="hero-headline text-[11vw] sm:text-[10vw] lg:text-[7rem] xl:text-[8rem] font-extrabold tracking-[-0.055em] leading-[0.86] text-[#D6C8B0] uppercase max-w-5xl drop-shadow-2xl"
         >
           {motto.quote}
         </motion.h2>

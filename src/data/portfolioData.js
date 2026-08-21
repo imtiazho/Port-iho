@@ -377,7 +377,8 @@ export const portfolioData = {
     },
   ],
   motto: {
-    quote: "GOOD DESIGN IS HONEST",
+    // quote: "GOOD DESIGN IS HONEST",
+    quote: "SHIPPED ONLY WHEN PERFECT",
     author: "Dieter Rams",
   },
   socials: {

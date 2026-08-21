@@ -1,13 +1,16 @@
 import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 
 function GloveMesh() {
   const groupRef = useRef();
+  const { viewport } = useThree();
+
+  const isMobile = viewport.width < 5.5;
+  const responsiveScale = isMobile ? 1.2 : 1.8;
 
   useFrame((state, delta) => {
     if (groupRef.current) {
-      // Continuous 360° rotation (approx 10-12s per revolution)
       groupRef.current.rotation.y += delta * 0.5;
 
       // Mouse influence
@@ -19,8 +22,8 @@ function GloveMesh() {
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.3}>
-      <group ref={groupRef} scale={1.8}>
+    <Float speed={1} rotationIntensity={0.2} floatIntensity={0.3}>
+      <group ref={groupRef} scale={responsiveScale}>
         {/* Dark Metallic Textured Sphere / Globe Glove */}
         <mesh>
           <sphereGeometry args={[1.2, 64, 64]} />

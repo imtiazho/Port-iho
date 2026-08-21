@@ -114,9 +114,9 @@ export default function App() {
         </div>
 
         {/* 07 / PHILOSOPHY (CONTAINS Glove3D BACKGROUND) */}
-        <div className="w-full max-w-full overflow-hidden relative z-10">
+        {/* <div className="w-full max-w-full overflow-hidden relative z-10">
           <Motto />
-        </div>
+        </div> */}
 
         {/* 08 / CONTACT */}
         <div className="w-full max-w-full overflow-hidden relative z-10">

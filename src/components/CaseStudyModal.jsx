@@ -18,7 +18,7 @@ export default function CaseStudyModal({ project, onClose }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[10000] bg-black/85 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto"
+        className="fixed inset-0 z-[1000] bg-black/85 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto"
         onClick={onClose}
       >
         <motion.div
@@ -27,7 +27,7 @@ export default function CaseStudyModal({ project, onClose }) {
           exit={{ scale: 0.95, y: 30 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-4xl bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-xl p-6 sm:p-10 text-[#D6C8B0] shadow-[0_0_60px_rgba(0,0,0,0.9)] my-auto max-h-[90vh] overflow-y-auto"
+          className="relative w-full max-w-4xl bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-xl p-5 sm:p-10 text-[#D6C8B0] shadow-[0_0_60px_rgba(0,0,0,0.9)] my-auto max-h-[90vh] overflow-y-auto"
         >
           {/* Close Button */}
           <button
@@ -45,7 +45,7 @@ export default function CaseStudyModal({ project, onClose }) {
                 {project.category} • {project.year}
               </span>
             </div>
-            <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
+            <h2 className="font-display text-2xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">
               {project.title}
             </h2>
           </div>

@@ -194,10 +194,10 @@ export default function ContactSection() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="flex items-center justify-between border-b border-[rgba(214,200,176,0.1)] pb-4 mb-2">
-                <span className="text-xs font-mono text-[#FF5035] uppercase font-bold tracking-wider">
+                <span className="text-[10px] sm:text-sm font-mono text-[#FF5035] uppercase font-bold tracking-wider">
                   [ DIRECT PROJECT BRIEF FORM ]
                 </span>
-                <span className="text-xs font-mono text-[#8C8375]">
+                <span className="text-[10px] sm:text-sm font-mono text-[#8C8375]">
                   Instant Dispatch
                 </span>
               </div>
@@ -210,7 +210,7 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs font-mono text-[#8C8375] uppercase block mb-2">
+                  <label className="text-[10px] sm:text-sm font-mono text-[#8C8375] uppercase block mb-2">
                     Your Name *
                   </label>
                   <input
@@ -222,12 +222,12 @@ export default function ContactSection() {
                     }
                     placeholder="Jane Doe"
                     disabled={isSubmitting}
-                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
+                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-[10px] sm:text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono text-[#8C8375] uppercase block mb-2">
+                  <label className="text-[10px] sm:text-sm font-mono text-[#8C8375] uppercase block mb-2">
                     Your Email *
                   </label>
                   <input
@@ -239,13 +239,13 @@ export default function ContactSection() {
                     }
                     placeholder="jane@company.com"
                     disabled={isSubmitting}
-                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
+                    className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-[10px] sm:text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-mono text-[#8C8375] uppercase block mb-2">
+                <label className="text-[10px] sm:text-sm font-mono text-[#8C8375] uppercase block mb-2">
                   Project Type
                 </label>
                 <select
@@ -254,7 +254,7 @@ export default function ContactSection() {
                     setFormData({ ...formData, projectType: e.target.value })
                   }
                   disabled={isSubmitting}
-                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
+                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-[10px] sm:text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors disabled:opacity-50"
                 >
                   <option value="Web Development">Full-Stack Web App</option>
                   <option value="SaaS Engineering">SaaS & Product Engineering</option>
@@ -264,7 +264,7 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label className="text-xs font-mono text-[#8C8375] uppercase block mb-2">
+                <label className="text-[10px] sm:text-sm font-mono text-[#8C8375] uppercase block mb-2">
                   Project Brief / Message *
                 </label>
                 <textarea
@@ -276,14 +276,14 @@ export default function ContactSection() {
                   }
                   placeholder="Tell me about your project goals, timeline, and vision..."
                   disabled={isSubmitting}
-                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors resize-none disabled:opacity-50"
+                  className="w-full bg-[#090909] border border-[rgba(214,200,176,0.2)] rounded-lg px-4 py-3 text-[10px] sm:text-sm text-[#D6C8B0] focus:border-[#FF5035] focus:outline-none transition-colors resize-none disabled:opacity-50"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 text-xs font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded-lg uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full py-4 text-[10px] sm:text-sm font-bold font-mono tracking-[0.2em] text-black bg-[#FF5035] rounded-lg uppercase hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <span>{isSubmitting ? 'DISPATCHING...' : 'SEND MESSAGE'}</span>
                 <span>{isSubmitting ? '⏳' : '→'}</span>

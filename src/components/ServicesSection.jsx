@@ -1,43 +1,81 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import SectionIndicator from './SectionIndicator';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import SectionIndicator from "./SectionIndicator";
 
 const servicesData = [
   {
-    id: '01',
-    number: '01',
-    title: 'FULL-STACK WEB DEVELOPMENT',
-    subtitle: 'MERN Stack, Scalable Architecture, REST APIs',
+    id: "01",
+    number: "01",
+    title: "FULL-STACK WEB DEVELOPMENT",
+    subtitle: "React, Node.js, REST APIs, Database-Driven Applications",
     description:
-      'Architecting end-to-end full-stack web applications built for high performance, reliability, and enterprise scale. From bulletproof database schemas and secure REST APIs to responsive, modern frontend interfaces.',
-    techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API', 'Tailwind CSS'],
+      "Building complete web applications across the frontend, backend, and database layers. From responsive React interfaces and structured REST APIs to authentication, business logic, and reliable data management.",
+    techStack: [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      // "Docker",
+      "MongoDB",
+      "REST APIs",
+      "Tailwind CSS",
+    ],
   },
+
   {
-    id: '02',
-    number: '02',
-    title: 'SAAS & PRODUCT ENGINEERING',
-    subtitle: 'Dashboards, Auth, Stripe Payment, State Management',
+    id: "02",
+    number: "02",
+    title: "BUSINESS APPLICATIONS & DASHBOARDS",
+    subtitle: "Dashboards, Authentication, RBAC, Operational Workflows",
     description:
-      'Engineering feature-rich SaaS products with secure multi-tenant authentication, real-time analytical dashboards, and robust state management. Seamless integration with Stripe payments, webhooks, and recurring billing systems.',
-    techStack: ['React', 'Next.js', 'Stripe', 'Zustand / Redux', 'OAuth', 'PostgreSQL'],
+      "Building practical business applications that turn real-world workflows into organized digital systems. Developing role-based dashboards, authentication flows, data management, and operational features for different types of users.",
+    techStack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Firebase Auth",
+      "RBAC",
+      "REST APIs",
+      "Tailwind CSS",
+    ],
   },
+
   {
-    id: '03',
-    number: '03',
-    title: 'INTERACTIVE FRONTEND & 3D',
-    subtitle: 'React, Three.js, Framer Motion, Micro-interactions',
+    id: "03",
+    number: "03",
+    title: "BACKEND & API ENGINEERING",
+    subtitle: "Node.js, Express.js, REST APIs, Authentication",
     description:
-      'Elevating web applications with dynamic WebGL 3D scenes, custom shaders, and butter-smooth micro-animations. Transforming static interface flows into tactile interactive journeys that captivate user attention.',
-    techStack: ['React', 'Three.js', 'React Three Fiber', 'Framer Motion', 'WebGL', 'GSAP'],
+      "Developing structured backend systems with REST APIs, authentication, role-based authorization, and application-specific business logic. Focusing on clean data flows, maintainable server-side code, and reliable communication between the application and database.",
+    techStack: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Firebase Auth",
+      "MongoDB",
+      "PostgreSQL",
+      "JavaScript",
+      // "Redis",
+      // "BullMQ",
+    ],
   },
+
   {
-    id: '04',
-    number: '04',
-    title: 'PERFORMANCE & CODE OPTIMIZATION',
-    subtitle: 'SEO, Web Vitals, Database Query Tuning',
+    id: "04",
+    number: "04",
+    title: "DATABASE & PERFORMANCE ENGINEERING",
+    subtitle: "Indexing, Query Optimization, Pagination, Caching",
     description:
-      'Auditing and optimizing web applications to achieve 95+ Core Web Vitals and sub-second load times. Eliminating rendering bottlenecks, tuning database query execution, and maximizing search engine visibility.',
-    techStack: ['Lighthouse', 'Web Vitals', 'SEO', 'Redis', 'Query Tuning', 'Bundle Optimization'],
+      "Improving backend and database performance through better data-access patterns, indexing, pagination, projections, and query optimization. Working with caching and invalidation strategies to reduce unnecessary database requests and keep application data consistent.",
+    techStack: [
+      "MongoDB",
+      "PostgreSQL",
+      "Prisma",
+      "Indexing",
+      "Query Optimization",
+      "Pagination",
+      "Caching",
+    ],
   },
 ];
 
@@ -60,9 +98,8 @@ export default function ServicesSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* 2-Column Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          
           {/* Left Column: Section Branding & Agency Subheading */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full">
+          <div className="lg:col-span-4 flex flex-col gap-2 h-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +121,9 @@ export default function ServicesSection() {
               </h2>
 
               <p className="text-[#A39784] text-base sm:text-lg font-normal leading-relaxed mb-8">
-                Delivering high-impact full-stack web applications, scalable SaaS product architectures, and immersive interactive web experiences engineered to convert.
+                Building high-performance full-stack applications, scalable
+                backend systems, and intuitive digital solutions—engineered to
+                solve real-world problems and drive business growth.
               </p>
             </motion.div>
 
@@ -101,7 +140,7 @@ export default function ServicesSection() {
                 <span className="text-[#FF5035]">4 Disciplines</span>
               </div>
               <div className="text-sm font-semibold text-[#D6C8B0]">
-                Full-Lifecycle Software Engineering & Interactive UI
+                Full - Lifecycle Software Engineering & Interactive UI
               </div>
             </motion.div>
           </div>
@@ -166,7 +205,7 @@ export default function ServicesSection() {
                       <motion.div
                         key="content"
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
+                        animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
@@ -199,7 +238,6 @@ export default function ServicesSection() {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>
