@@ -94,7 +94,7 @@ export default function SkillsShowcase() {
         </div>
 
         {/* 2-Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Left Column: Philosophy & Core Badges */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

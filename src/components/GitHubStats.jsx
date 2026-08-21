@@ -4,7 +4,8 @@ import { GitHubCalendar } from "react-github-calendar";
 import { useGitHubData } from "../utils/useGitHubData";
 
 export default function GitHubStats() {
-  const { publicRepos, totalContributions, loading } = useGitHubData("imtiazho");
+  const { publicRepos, totalContributions, loading } =
+    useGitHubData("imtiazho");
 
   const statCards = [
     {
@@ -14,7 +15,7 @@ export default function GitHubStats() {
     },
     {
       label: "2026 Contributions",
-      value: `${(totalContributions).toLocaleString()}+`,
+      value: `${totalContributions.toLocaleString()}+`,
       subtext: "Active Engineering",
     },
     {
@@ -29,6 +30,41 @@ export default function GitHubStats() {
     light: ["#161616", "#40150d", "#7d2617", "#c43d22", "#FF5035"],
     dark: ["#161616", "#40150d", "#7d2617", "#c43d22", "#FF5035"],
   };
+  const commitLogs = [
+    {
+      repo: "zapshift-app",
+      message: "feat: Stripe payment intent & parcel tracking webhooks",
+      tag: "FEATURE",
+    },
+    {
+      repo: "smart-deals",
+      message: "refactor: optimize product filtering & query indexes",
+      tag: "PERF",
+    },
+    {
+      repo: "edumanage-dashboard",
+      message: "fix: student analytics re-rendering & performance audit",
+      tag: "STABILITY",
+    },
+  ];
+
+  const githubMetrics = [
+    {
+      label: "Codebase Activity",
+      value: "Daily Commits & PRs",
+      detail: "Active Open Source & Private Repos",
+    },
+    {
+      label: "Version Control Workflow",
+      value: "Git / GitHub / CI",
+      detail: "Structured Branching & PR Reviews",
+    },
+    {
+      label: "Code Organization",
+      value: "Modular & Documented",
+      detail: "Clean Architecture & Readme Standards",
+    },
+  ];
 
   return (
     <section
@@ -74,8 +110,7 @@ export default function GitHubStats() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase max-w-4xl"
             >
-              Live GitHub Activity &{" "}
-              <span className="text-[#FF5035]">Engineering Heatmap</span>
+              Engineering <span className="text-[#FF5035]"> Heatmap</span>
             </motion.h2>
           </div>
 
@@ -88,36 +123,6 @@ export default function GitHubStats() {
             <span>VIEW GITHUB PROFILE</span>
             <span>↗</span>
           </a>
-        </div>
-
-        {/* 3 CLEAN REAL STATS CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          {statCards.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-[#090909] border border-[rgba(214,200,176,0.12)] p-6 rounded-lg space-y-2 hover:border-[#FF5035]/50 transition-colors shadow-lg relative overflow-hidden"
-            >
-              <span className="text-xs text-[#8C8375] font-mono uppercase block">
-                {stat.label}
-              </span>
-
-              {loading ? (
-                <div className="animate-pulse bg-[#161616] rounded-lg h-9 w-24 my-1 border border-[#D6C8B0]/5" />
-              ) : (
-                <span className="font-display text-3xl sm:text-4xl font-extrabold text-white block">
-                  {stat.value}
-                </span>
-              )}
-
-              <span className="text-[10px] text-[#FF5035] font-mono block">
-                ● {stat.subtext}
-              </span>
-            </motion.div>
-          ))}
         </div>
 
         {/* LIVE CONTRIBUTION HEATMAP (react-github-calendar) */}
@@ -139,6 +144,56 @@ export default function GitHubStats() {
             />
           </div>
         </motion.div>
+
+        <div className="bg-[#090909] border border-[rgba(214,200,176,0.12)] p-5 rounded-lg space-y-3 font-mono">
+          {/* GitHub Specific Header */}
+          <div className="flex items-center justify-between border-b border-white/10 pb-2 text-xs text-[#8C8375]">
+            <span className="flex items-center gap-1.5 text-[#D6C8B0]">
+              <span className="text-[#FF5035]">⚡</span> GITHUB_WORKFLOW_METRICS
+            </span>
+            <span className="text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/20">
+              PROFILE_ACTIVE
+            </span>
+          </div>
+
+          {/* Metric Items */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            {githubMetrics.map((item, i) => (
+              <div
+                key={i}
+                className="bg-[#111111] p-3.5 rounded border border-white/5 space-y-1 hover:border-[#FF5035]/40 transition-colors"
+              >
+                <span className="text-[10px] text-[#8C8375] uppercase block font-bold">
+                  {item.label}
+                </span>
+                <span className="text-sm font-bold text-white block">
+                  {item.value}
+                </span>
+                <span className="text-[10px] text-[#FF5035] block">
+                  ● {item.detail}
+                </span>
+              </div>
+            ))}
+          </div>
+
+
+          <div className="space-y-2.5 text-xs">
+            {commitLogs.map((log, i) => (
+              <div
+                key={i}
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[#D6C8B0]"
+              >
+                <span className="truncate">
+                  <span className="text-[#FF5035]">[{log.repo}]</span>{" "}
+                  {log.message}
+                </span>
+                <span className="text-[10px] text-[#8C8375] bg-[#111111] px-2 py-0.5 rounded border border-white/5 shrink-0 self-start sm:self-auto">
+                  {log.tag}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

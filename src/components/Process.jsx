@@ -1,37 +1,42 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import SectionIndicator from './SectionIndicator';
+import React from "react";
+import { motion } from "framer-motion";
+import SectionIndicator from "./SectionIndicator";
 
 const processSteps = [
   {
-    num: '1',
-    code: '01 / ARCHITECTURE & BRIEF',
-    title: 'ARCHITECTURE & BRIEF',
-    description: 'Initial scope, tech stack setup & API design.',
+    num: "01",
+    code: "01 / ARCHITECTURE",
+    title: "Architecture & System Design",
+    description:
+      "Requirement analysis, tech stack selection, database schema design, and RESTful/GraphQL API architecture planning.",
   },
   {
-    num: '2',
-    code: '02 / PROTOTYPING & UI',
-    title: 'PROTOTYPING & UI',
-    description: 'Interactive UI layouts & motion design validation.',
+    num: "02",
+    code: "02 / UI_UX_PROTOTYPING",
+    title: "UI/UX & Prototyping",
+    description:
+      "Crafting modern, responsive UI layouts with interactive micro-interactions, motion design, and design system alignment.",
   },
   {
-    num: '3',
-    code: '03 / FULL-STACK DEV',
-    title: 'FULL-STACK DEV',
-    description: 'Clean modular implementation with React, Node & DB.',
+    num: "03",
+    code: "03 / FULLSTACK_ENGINEERING",
+    title: "Full-Stack Development",
+    description:
+      "Clean, scalable, and modular implementation using modern frontend frameworks, Node.js backend, and database integration.",
   },
   {
-    num: '4',
-    code: '04 / TESTING & AUDIT',
-    title: 'TESTING & AUDIT',
-    description: 'Performance optimization, security & code quality checks.',
+    num: "04",
+    code: "04 / TESTING_&_AUDIT",
+    title: "Testing & Quality Assurance",
+    description:
+      "Comprehensive security audits, performance optimization, cross-browser compatibility checks, and bug fixes.",
   },
   {
-    num: '5',
-    code: '05 / DEPLOYMENT',
-    title: 'DEPLOYMENT',
-    description: 'CI/CD setup, production release & documentation.',
+    num: "05",
+    code: "05 / DEPLOYMENT_&_DEVOPS",
+    title: "Deployment & CI/CD",
+    description:
+      "Automated CI/CD pipeline setup, cloud server deployment, SSL configuration, and production launch.",
   },
 ];
 
@@ -45,7 +50,6 @@ export default function Process() {
       <SectionIndicator sectionNumber="05" showSocials={true} />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-16 lg:space-y-24">
-        
         {/* Section Header */}
         <div className="flex flex-col space-y-3">
           <motion.div
@@ -66,14 +70,14 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase max-w-4xl"
+            className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase"
           >
-            ENGINEERING ROADMAP & <span className="text-[#FF5035]">DELIVERY PROCESS</span>
+            DELIVERY<span className="text-[#FF5035]"> PIPELINE</span>
           </motion.h2>
         </div>
 
         {/* DESKTOP LAYOUT (>1024px / lg): Horizontal Timeline with Alternating Top/Bottom Cards */}
-        <div className="hidden lg:block relative w-full py-12">
+        <div className="hidden lg:block relative w-full">
           {/* Static Active Orange Glowing Horizontal Line */}
           <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2 bg-[#FF5035] shadow-[0_0_12px_rgba(255,80,53,0.6)] z-10" />
 
@@ -171,7 +175,6 @@ export default function Process() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
