@@ -1,28 +1,36 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import SectionIndicator from './SectionIndicator';
-import { portfolioData } from '../data/portfolioData';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import SectionIndicator from "./SectionIndicator";
+import { portfolioData } from "../data/portfolioData";
 
 export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
   const { projects } = portfolioData;
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ['All', 'Web App', '3D Motion', 'Mobile App', 'Branding'];
+  const categories = [
+    "All",
+    "Full-Stack",
+    "Frontend",
+    "Backend",
+    "3D & Interactive",
+  ];
 
-  const filteredProjects = selectedCategory === 'All'
-    ? projects
-    : projects.filter(p => p.category.toLowerCase().includes(selectedCategory.toLowerCase()));
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((p) =>
+          p.category.toLowerCase().includes(selectedCategory.toLowerCase()),
+        );
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className="relative min-h-screen w-full bg-[#090909] text-[#D6C8B0] flex items-center justify-center py-14 sm:py-28 px-4 sm:px-8 lg:px-24 overflow-hidden border-b border-[rgba(214,200,176,0.12)] selection:bg-[#FF5035] selection:text-black"
     >
       {/* Side Rail Section Indicator */}
-      <SectionIndicator sectionNumber="03"/>
+      <SectionIndicator sectionNumber="03" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col space-y-10 sm:space-y-14">
-        
         {/* Section Header & Category Filters */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <motion.div
@@ -53,8 +61,8 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 text-xs font-mono tracking-wider rounded-full border transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-[#FF5035] text-black font-bold border-[#FF5035] shadow-[0_0_15px_rgba(255,80,53,0.4)]'
-                    : 'bg-[#0B0B0B] text-[#8C8375] border-[rgba(214,200,176,0.15)] hover:text-white hover:border-[#D6C8B0]/30'
+                    ? "bg-[#FF5035] text-black font-bold border-[#FF5035] shadow-[0_0_15px_rgba(255,80,53,0.4)]"
+                    : "bg-[#0B0B0B] text-[#8C8375] border-[rgba(214,200,176,0.15)] hover:text-white hover:border-[#D6C8B0]/30"
                 }`}
               >
                 {cat}
@@ -64,7 +72,7 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
         </div>
 
         {/* Project Showcase 2-Column Feature Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -72,12 +80,14 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              onMouseEnter={() => setCursorState && setCursorState('projectHover')}
-              onMouseLeave={() => setCursorState && setCursorState('default')}
+              onMouseEnter={() =>
+                setCursorState && setCursorState("projectHover")
+              }
+              onMouseLeave={() => setCursorState && setCursorState("default")}
               className="group relative bg-[#111111]/80 border border-[#D6C8B0]/15 rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-500 hover:border-[#FF5035]/60 hover:shadow-[0_0_30px_rgba(255,80,53,0.15)] flex flex-col justify-between"
             >
               {/* Top Image Container with Fixed Aspect Ratio & Smooth Hover Zoom */}
-              <div 
+              <div
                 onClick={() => onSelectProject && onSelectProject(project)}
                 className="relative w-full aspect-video h-64 sm:h-72 overflow-hidden bg-black cursor-pointer group/img"
               >
@@ -86,10 +96,10 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
                   alt={project.title}
                   className="w-full h-full object-cover filter grayscale contrast-110 brightness-90 group-hover:scale-105 transition-transform duration-700 ease-out group-hover:grayscale-0"
                 />
-                
+
                 {/* Dynamic Dark Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
-                
+
                 {/* Floating Top Right Case Study Badge */}
                 <div className="absolute top-4 right-4 z-10">
                   <button
@@ -121,12 +131,16 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
                 <div className="space-y-3">
                   {/* Category & Index Header */}
                   <div className="flex items-center justify-between text-xs font-mono text-[#8C8375] uppercase tracking-wider">
-                    <span>{project.id} / {project.category}</span>
-                    <span className="text-[#FF5035] font-bold font-mono">FEATURED PLATFORM</span>
+                    <span>
+                      {project.id} / {project.category}
+                    </span>
+                    <span className="text-[#FF5035] font-bold font-mono">
+                      FEATURED PLATFORM
+                    </span>
                   </div>
 
                   {/* Title */}
-                  <h3 
+                  <h3
                     onClick={() => onSelectProject && onSelectProject(project)}
                     className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#D6C8B0] group-hover:text-[#FF5035] transition-colors duration-300 uppercase cursor-pointer leading-tight"
                   >
@@ -186,11 +200,15 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
                     {/* Right: Deep Dive Case Study Arrow Button */}
                     <button
                       type="button"
-                      onClick={() => onSelectProject && onSelectProject(project)}
+                      onClick={() =>
+                        onSelectProject && onSelectProject(project)
+                      }
                       className="w-10 h-10 rounded-full border border-[rgba(214,200,176,0.25)] flex items-center justify-center text-[#D6C8B0] group-hover:border-[#FF5035] group-hover:bg-[#FF5035] group-hover:text-black transition-all cursor-pointer"
                       title="Inspect Case Study"
                     >
-                      <span className="text-sm font-bold transform group-hover:rotate-45 transition-transform duration-300">↗</span>
+                      <span className="text-sm font-bold transform group-hover:rotate-45 transition-transform duration-300">
+                        ↗
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -198,7 +216,6 @@ export default function ProjectsShowcase({ setCursorState, onSelectProject }) {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

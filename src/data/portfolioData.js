@@ -16,179 +16,13 @@ export const portfolioData = {
     buttonText: "EXPLORE WORK",
     availability: "AVAILABLE",
   },
-  services: [
-    { label: "FULL - STACK" },
-    { label: "SAAS PRODUCT" },
-    { label: "INTERACTIVE UI" },
-    { label: "REACT / NODE" },
-  ],
-  servicesDescription:
-    "I create engaging visual experiences through motion, design and storytelling.",
-  experience: {
-    title: "EXPERIENCE",
-    textBefore: "Over a ",
-    highlight: "decade",
-    textAfter:
-      " of experience in interactive design and working with some of the most talented people in the business.",
-  },
-  history: [
-    {
-      year: "NOW",
-      role: "Design Lead",
-      company: "Fantasy Interactive",
-      active: true,
-    },
-    {
-      year: "2016",
-      role: "Senior Product Designer",
-      company: "Medium / Uber / Framer",
-      active: false,
-    },
-    {
-      year: "2012",
-      role: "Art Director",
-      company: "DBL, Omnicom Group",
-      active: false,
-    },
-    {
-      year: "2009",
-      role: "Flash Designer",
-      company: "DBL, Omnicom Group",
-      active: false,
-    },
-  ],
-  processSteps: [
-    {
-      step: "01",
-      title: "Deep Discovery & Research",
-      description:
-        "Deconstructing product requirements, auditing user psychology, defining interaction mechanics, and setting strategic artistic direction.",
-      deliverable: "Product Architecture & Moodboard",
-    },
-    {
-      step: "02",
-      title: "Interactive UI & 3D Prototyping",
-      description:
-        "Designing tactile interfaces with WebGL/Three.js shaders, custom motion physics, and continuous micro-interactions.",
-      deliverable: "High-Fidelity Motion Prototypes",
-    },
-    {
-      step: "03",
-      title: "Clean Modular Code",
-      description:
-        "Architecting scalable React component hierarchies with strict design tokens, Framer Motion transitions, and clean state logic.",
-      deliverable: "Production-Grade Codebase",
-    },
-    {
-      step: "04",
-      title: "Performance & FPS Optimization",
-      description:
-        "Optimizing 3D draw calls, bundle sizes, lazy loading, layout thrashing, and sub-millisecond response times for 60fps fluidity.",
-      deliverable: "Lighthouse 95+ Audit",
-    },
-    {
-      step: "05",
-      title: "Seamless Shipping & Scale",
-      description:
-        "Deploying high-converting digital products, continuous delivery pipelines, and post-launch design system governance.",
-      deliverable: "Global Product Launch",
-    },
-  ],
-  clients: [
-    {
-      id: "ford",
-      name: "FORD",
-      quote:
-        "“Minh understands how to turn complex ideas into beautiful, intuitive interactive experiences.”",
-      author: "Sarah Jenkins",
-      role: "Creative Director",
-      company: "Ford Next",
-    },
-    {
-      id: "ufc",
-      name: "UFC",
-      quote:
-        "“His motion direction and visual craft elevated our brand strategy to global awards standards.”",
-      author: "Dana White",
-      role: "VP of Brand Strategy",
-      company: "UFC Media",
-    },
-    {
-      id: "lincoln",
-      name: "LINCOLN",
-      quote:
-        "“Minh brings a refined editorial artistic lens to high-end digital luxury storytelling.”",
-      author: "Marcus Vance",
-      role: "Global Design Lead",
-      company: "Lincoln Motor Co.",
-    },
-    {
-      id: "royal-caribbean",
-      name: "ROYAL CARIBBEAN",
-      highlightStrip:
-        "I was part of the team on a massive team that created an entire Royal Caribbean new system.",
-      quote:
-        "“Minh is seriously the best and he never complains. He led key parts of our new global design system.”",
-      author: "Michael Glass",
-      role: "Group Design Director",
-      company: "Fantasy Interactive",
-    },
-    {
-      id: "sleep-iq",
-      name: "SLEEP IQ",
-      quote:
-        "“World-class execution, meticulous attention to detail, and incredible 3D visual language.”",
-      author: "Elena Rostova",
-      role: "Head of Product",
-      company: "SleepIQ Labs",
-    },
-    {
-      id: "nfl",
-      name: "NFL",
-      quote:
-        "“Pushed our digital interactive boundaries further than any design director we've collaborated with.”",
-      author: "David Thorne",
-      role: "Digital Executive Director",
-      company: "NFL Interactive",
-    },
-  ],
-  testimonials: [
-    {
-      id: 1,
-      quote: "“Minh is seriously the best and he never complains.”",
-      author: "Michael Glass",
-      role: "Group Design Director",
-      company: "Fantasy Interactive",
-      avatar:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-    },
-    {
-      id: 2,
-      quote:
-        "“Minh understands how to build products that captivate users from the first millisecond.”",
-      author: "Alex Rivera",
-      role: "VP of Product & Motion",
-      company: "Medium",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
-    },
-    {
-      id: 3,
-      quote:
-        "“Rare combination of deep 3D artistry, product engineering mindset, and flawless execution.”",
-      author: "Sophia Chen",
-      role: "Executive Creative Director",
-      company: "Framer Design Studio",
-      avatar:
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
-    },
-  ],
+
   projects: [
     {
       id: "01",
       slug: "zapshift",
       title: "ZAPSHIFT",
-      category: "Web App",
+      category: "Full-Stack",
       year: "2026",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
@@ -218,7 +52,7 @@ export const portfolioData = {
       id: "02",
       slug: "edumanage",
       title: "EDUMANAGE",
-      category: "Web App",
+      category: "Backend",
       year: "2025",
       image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80",
@@ -247,7 +81,7 @@ export const portfolioData = {
       id: "03",
       slug: "smartdeals",
       title: "SMARTDEALS",
-      category: "Mobile App",
+      category: "Frontend",
       year: "2025",
       image:
         "https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=1000&q=80",
@@ -275,7 +109,7 @@ export const portfolioData = {
       id: "04",
       slug: "nebula",
       title: "NEBULA",
-      category: "3D Motion",
+      category: "3D & Interactive",
       year: "2026",
       image:
         "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80",
@@ -303,7 +137,7 @@ export const portfolioData = {
       id: "05",
       slug: "tracker",
       title: "TRACKER",
-      category: "Web App",
+      category: "Frontend",
       year: "2025",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
@@ -325,7 +159,7 @@ export const portfolioData = {
       id: "06",
       slug: "volt",
       title: "VOLT",
-      category: "Branding",
+      category: "3D & Interactive",
       year: "2025",
       image:
         "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
@@ -352,7 +186,7 @@ export const portfolioData = {
       id: "07",
       slug: "echo",
       title: "ECHO",
-      category: "Mobile App",
+      category: "Frontend",
       year: "2024",
       image:
         "https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=1000&q=80",

@@ -1,39 +1,59 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import SectionIndicator from './SectionIndicator';
+import React from "react";
+import { motion } from "framer-motion";
+import SectionIndicator from "./SectionIndicator";
 
 const skillCategories = [
   {
-    title: 'FRONTEND & 3D',
-    icon: '⚡',
-    skills: ['React.js', 'Next.js', 'Tailwind CSS', 'Three.js', 'Redux Toolkit', 'Framer Motion'],
-  },
-  {
-    title: 'BACKEND & APIS',
-    icon: '⚙️',
-    skills: ['Node.js', 'Express.js', 'REST APIs', 'Socket.io', 'JWT Auth', 'Stripe Integration'],
-  },
-  {
-    title: 'DATABASE & TOOLS',
-    icon: '🛠️',
-    skills: ['MongoDB', 'Mongoose', 'PostgreSQL', 'Git & GitHub', 'Postman', 'Vite'],
-  },
-  {
-    title: 'CORE COMPETENCIES',
-    icon: '🚀',
+    title: "FRONTEND & 3D",
+    icon: "⚡",
     skills: [
-      'Data Structures & Algorithms',
-      'Competitive Programming',
-      'System Design',
-      'Responsive UI/UX',
+      "React.js",
+      "Tailwind CSS",
+      "Three.js",
+      "TanStack Query",
+      "Framer Motion",
+    ],
+  },
+  {
+    title: "BACKEND & APIS",
+    icon: "⚙️",
+    skills: [
+      "Node.js",
+      "Express.js",
+      "RESTful APIs",
+      "JWT Auth & RBAC",
+      "Stripe Integration",
+      "Cache Architecture",
+    ],
+  },
+  {
+    title: "DATABASE & TOOLS",
+    icon: "🛠️",
+    skills: [
+      "MongoDB",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Git & GitHub",
+      "Firebase",
+      // "Docker",
+    ],
+  },
+  {
+    title: "CORE COMPETENCIES",
+    icon: "🚀",
+    skills: [
+      "Data Structures & Algorithms",
+      "Query & Indexing Optimization",
+      "Clean Modular Architecture",
+      "Responsive UI/UX",
     ],
   },
 ];
 
 const corePrinciples = [
-  '[Clean Code & Architecture]',
-  '[RESTful & Real-time APIs]',
-  '[Interactive 3D/Canvas UI]',
+  "[Clean Code & Modular Architecture]",
+  "[RESTful APIs & Cache Optimization]",
+  "[Interactive 3D / R3F Interfaces]",
 ];
 
 export default function SkillsShowcase() {
@@ -68,12 +88,13 @@ export default function SkillsShowcase() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#D6C8B0] uppercase leading-tight max-w-4xl"
           >
-            ENGINEERED FOR SCALE & <span className="text-[#FF5035]">REAL-TIME PERFORMANCE</span>
+            SCALABLE & {" "}
+            <span className="text-[#FF5035]">HIGH-PERFORMANCE</span>
           </motion.h2>
         </div>
 
         {/* 2-Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Philosophy & Core Badges */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -87,10 +108,13 @@ export default function SkillsShowcase() {
                 ENGINEERING PHILOSOPHY
               </h3>
               <p className="text-base text-[#A39784] font-normal leading-relaxed">
-                Specializing in full-stack MERN engineering, reactive state management, and sub-millisecond REST & WebSocket API architectures.
+                Specializing in full-stack MERN development, efficient state
+                management, and optimized RESTful API architectures.
               </p>
               <p className="text-sm text-[#8C8375] font-normal leading-relaxed">
-                Crafting tactile, high-conversion web applications with production-grade 3D UI physics, strict design tokens, and modular codebase logic.
+                Crafting responsive, high-performance web applications with
+                immersive 3D UI interactions, clean database indexing, and
+                modular codebase logic.
               </p>
             </div>
 
